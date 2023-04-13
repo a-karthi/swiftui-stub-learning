@@ -17,6 +17,8 @@
 		CAF5A24929E7EA42004C5110 /* dingerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A24829E7EA42004C5110 /* dingerUITests.swift */; };
 		CAF5A24B29E7EA42004C5110 /* dingerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A24A29E7EA42004C5110 /* dingerUITestsLaunchTests.swift */; };
 		CAF5A25829E7FBDD004C5110 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A25729E7FBDD004C5110 /* AddItemView.swift */; };
+		CAF5A25B29E810D8004C5110 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A25929E810D8004C5110 /* Item+CoreDataClass.swift */; };
+		CAF5A25C29E810D8004C5110 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5A25A29E810D8004C5110 /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		CAF5A24829E7EA42004C5110 /* dingerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dingerUITests.swift; sourceTree = "<group>"; };
 		CAF5A24A29E7EA42004C5110 /* dingerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dingerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CAF5A25729E7FBDD004C5110 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		CAF5A25929E810D8004C5110 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CAF5A25A29E810D8004C5110 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +104,12 @@
 		CAF5A22729E7EA3F004C5110 /* dinger */ = {
 			isa = PBXGroup;
 			children = (
+				CAF5A25D29E810E1004C5110 /* CoreData */,
 				CAF5A22829E7EA3F004C5110 /* dingerApp.swift */,
 				CAF5A22A29E7EA3F004C5110 /* ContentView.swift */,
 				CAF5A25729E7FBDD004C5110 /* AddItemView.swift */,
 				CAF5A22C29E7EA41004C5110 /* Assets.xcassets */,
 				CAF5A23129E7EA41004C5110 /* Persistence.swift */,
-				CAF5A23329E7EA41004C5110 /* dinger.xcdatamodeld */,
 				CAF5A22E29E7EA41004C5110 /* Preview Content */,
 			);
 			path = dinger;
@@ -134,6 +138,16 @@
 				CAF5A24A29E7EA42004C5110 /* dingerUITestsLaunchTests.swift */,
 			);
 			path = dingerUITests;
+			sourceTree = "<group>";
+		};
+		CAF5A25D29E810E1004C5110 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CAF5A23329E7EA41004C5110 /* dinger.xcdatamodeld */,
+				CAF5A25929E810D8004C5110 /* Item+CoreDataClass.swift */,
+				CAF5A25A29E810D8004C5110 /* Item+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF5A25C29E810D8004C5110 /* Item+CoreDataProperties.swift in Sources */,
+				CAF5A25B29E810D8004C5110 /* Item+CoreDataClass.swift in Sources */,
 				CAF5A23529E7EA41004C5110 /* dinger.xcdatamodeld in Sources */,
 				CAF5A23229E7EA41004C5110 /* Persistence.swift in Sources */,
 				CAF5A22B29E7EA3F004C5110 /* ContentView.swift in Sources */,

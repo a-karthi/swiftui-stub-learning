@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct AddItemView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+enum AddItemPurpose {
+    case Add
+    case Edit
 }
 
-struct AddItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddItemView()
+struct AddItemView: View {
+    @Binding var todoString: String
+    var body: some View {
+        VStack {
+            TextField("Enter your to-do", text: $todoString)
+                .padding()
+                .font(.headline)
+            Spacer()
+        }
     }
 }

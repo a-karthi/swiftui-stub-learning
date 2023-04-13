@@ -15,15 +15,19 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    @State private var isPresentingEditView = false
+    
+    @State private var toDoString: String = ""
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text(item.todoString ?? "")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(item.todoString ?? "")
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -33,20 +37,43 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: presentEdit) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
             }
+            .sheet(isPresented: $isPresentingEditView) {
+                NavigationStack {
+                    AddItemView(todoString: $toDoString)
+                        .navigationTitle("Add Item")
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancel") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    isPresentingEditView = false
+                                    self.addItem()
+                                }
+                            }
+                        }
+                }
+            }
             Text("Select an item")
         }
+    }
+    
+    private func presentEdit() {
+        self.isPresentingEditView = true
     }
 
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            newItem.todoString = self.toDoString
             do {
                 try viewContext.save()
             } catch {
